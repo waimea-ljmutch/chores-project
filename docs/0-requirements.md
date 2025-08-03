@@ -19,9 +19,9 @@ Replace this text with a brief statement about the system that you intend to cre
 
 # Relevant Implications
 
-## NAME OF IMPLICATION 1
+## Aesthetic  IMPLICATION 
 
-Replace this text with a clear explanation of what the implication means.
+The aesthetic implications of a digital technology or digital outcome (e.g. a website) relate to how it looks in terms of design.
 
 ### Relevance to the System
 
