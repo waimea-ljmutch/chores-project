@@ -25,7 +25,9 @@ The first stage of prototyping was to explore how the UI might 'flow' between st
 
 This Figma demo shows the initial design for the UI 'flow':
 
-**FIGMA FLOW - PLACE THE FIGMA EMBED CODE HERE - MAKE SURE IT IS SET SO THAT EVERYONE CAN ACCESS IT**
+<iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="800" height="450" src=
+"https://embed.figma.com/proto/7YycmoYMWii3PlQ9oIZ5wx/chores-v1?scaling=min-zoom&content-scaling=fixed&page-
+id=0%3A1&node-id=8-5&starting-point-node-id=8%3A5&embed-host=share" allowfullscreen></iframe>
 
 ### Testing
 
@@ -35,7 +37,7 @@ Replace this text with notes about what you did to test the UI flow and the outc
 
 Replace this text with notes any improvements you made as a result of the testing.
 
-*IMPROVED FIGMA FLOW - PLACE THE FIGMA EMBED CODE HERE - MAKE SURE IT IS SET SO THAT EVERYONE CAN ACCESS IT*
+<iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="500" height="900" src="https://embed.figma.com/proto/9Vg8FbMmnnsLYVQioRkjeL/chores-v2?scaling=min-zoom&content-scaling=fixed&page-id=0%3A1&node-id=1-2&embed-host=share" allowfullscreen></iframe>
 
 
 ---
