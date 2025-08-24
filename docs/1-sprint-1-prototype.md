@@ -30,12 +30,13 @@ This Figma demo shows the initial design for the UI 'flow':
 id=0%3A1&node-id=8-5&starting-point-node-id=8%3A5&embed-host=share" allowfullscreen></iframe>
 
 ### Testing
-
+I took notes and some feedback from my friends and family
 
 
 ### Changes / Improvements
 
-Replace this text with notes any improvements you made as a result of the testing.
+Zach- They shouldn't have to have menus pop up automatically they should be able to choose what comes up. 
+I want the date finished and name to be first 
 
 
 
@@ -52,20 +53,22 @@ This Figma demo shows the initial layout design for the UI:
 
 ### Testing
 
-Replace this text with notes about what you did to test the UI flow and the outcome of the testing.
+I took notes and some feedback from my friends and family
 
 ### Changes / Improvements
+Zach- having names in the home page and in each name having the chores they must do so that they don't must try and remember 
 
-Replace this text with notes any improvements you made as a result of the testing.
+Dad- have a back button on chores page. When you click on the chore you want to do you can select the type of location/rooms. Have sub tasks for example: for vacuum, change vacuum cleaner bag if needed. For dishwasher add unstack Dishwasher or stack  
 
-*FIGMA IMPROVED PROTOTYPE - PLACE THE FIGMA EMBED CODE HERE - MAKE SURE IT IS SET SO THAT EVERYONE CAN ACCESS IT*
+
+
 
 
 ---
 
 ## Refined UI Prototype
 
-Having established the layout of the UI screens, the prototype was refined visually, in terms of colour, fonts, etc.
+Having established the layout of the UI screens, the prototype was refined visually, in terms of color, fonts, etc.
 
 This Figma demo shows the UI with refinements applied:
 
@@ -74,7 +77,7 @@ This Figma demo shows the UI with refinements applied:
 
 ### Testing
 
-Replace this text with notes about what you did to test the UI flow and the outcome of the testing.
+i have finished the improvements that i got from all the feedback i did
 
 ### Changes / Improvements
 
