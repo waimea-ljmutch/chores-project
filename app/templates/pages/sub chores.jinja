@@ -10,7 +10,7 @@
 
 {% block title %}
 
-    Family ToDo
+    Family ToDo - Chores
 
 {% endblock %}
 
@@ -19,33 +19,20 @@
 
     <article>
 
+        <h2>{{ person.name }}, pick a sub chore...</h2>
+
         <ul>
-            {% for person in people %}
+            {% for  sub chore in  sub chores %}
 
                 <li>
-                    <a href="/chores/{{ person.id }}">
-                        {{ person.name }}
-                    </a>
+                    {{ sub_chore.name }}
+                    {{ sub_chore.done }}
+                    
                 </li>
 
             {% else %}
 
                 <p>None!</p>
-
-            {% endfor %}
-        </ul>
-            <ul>
-            {% for chore in chores %}
-
-                <li>
-                    <a href="/subchores/{{ chores.id }}">
-                        {{ chores.name }}
-                    </a>
-                </li>
-
-            {% else %}
-
-
 
             {% endfor %}
         </ul>

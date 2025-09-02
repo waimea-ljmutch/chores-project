@@ -11,10 +11,9 @@ Develop a prototype that simulates the key functionality of the system, then tes
 ---
 
 ## Initial Database Design
+the base of my design works and i will use this for my main page
 
-Replace this text with notes regarding the DB design.
-
-![SCREENSHOT OF DB DESIGN](screenshots/example.png)
+![Alt text](image.png)
 
 
 ---
@@ -32,18 +31,20 @@ id=0%3A1&node-id=8-5&starting-point-node-id=8%3A5&embed-host=share" allowfullscr
 ### Testing
 I took notes and some feedback from my friends and family
 
+>Zach- They shouldn't have to have menus pop up automatically they should be able to choose what comes up. 
+I want the date finished and name to be first 
+
 
 ### Changes / Improvements
 
-Zach- They shouldn't have to have menus pop up automatically they should be able to choose what comes up. 
-I want the date finished and name to be first 
+i made it so it does'nt have to have the menu pop up automatically and they can choose what comes up
 
 
 
 
 ---
 
-## Initial UI Prototype
+## Initial UI Prototype (chore tracker v2)
 
 The next stage of prototyping was to develop the layout for each screen of the UI.
 
@@ -55,10 +56,13 @@ This Figma demo shows the initial layout design for the UI:
 
 I took notes and some feedback from my friends and family
 
-### Changes / Improvements
-Zach- having names in the home page and in each name having the chores they must do so that they don't must try and remember 
+>Zach- having names in the home page and in each name having the chores they must do so that they don't must try and remember 
 
-Dad- have a back button on chores page. When you click on the chore you want to do you can select the type of location/rooms. Have sub tasks for example: for vacuum, change vacuum cleaner bag if needed. For dishwasher add unstack Dishwasher or stack  
+>Dad- have a back button on chores page. When you click on the chore you want to do you can select the type of location/rooms. Have sub tasks for example: for vacuum, change vacuum cleaner bag if needed. For dishwasher add unstack Dishwasher or stack 
+ 
+### Changes / Improvements
+first I added names in the first page and i made it so when you click on the names it goes to a chore i also added a back 
+button on the chores screen so that if you clicked the wrong person you can go back and then with those chores I also added sub chores 
 
 
 
@@ -66,7 +70,7 @@ Dad- have a back button on chores page. When you click on the chore you want to 
 
 ---
 
-## Refined UI Prototype
+## Refined UI Prototype(chore tracker v3)
 
 Having established the layout of the UI screens, the prototype was refined visually, in terms of color, fonts, etc.
 
@@ -81,9 +85,7 @@ i have finished the improvements that i got from all the feedback i did
 
 ### Changes / Improvements
 
-Replace this text with notes any improvements you made as a result of the testing.
-
-*FIGMA IMPROVED REFINED PROTOTYPE - PLACE THE FIGMA EMBED CODE HERE - MAKE SURE IT IS SET SO THAT EVERYONE CAN ACCESS IT*
+I am going to change the color to make the website look good and not bad when it comes to the assessment
 
 
 ---

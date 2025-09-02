@@ -30,32 +30,59 @@ init_datetime(app)  # Handle UTC dates in timestamps
 #-----------------------------------------------------------
 @app.get("/")
 def index():
-    return render_template("pages/home.jinja")
-
-
-#-----------------------------------------------------------
-# About page route
-#-----------------------------------------------------------
-@app.get("/about/")
-def about():
-    return render_template("pages/about.jinja")
-
-
-#-----------------------------------------------------------
-# Things page route - Show all the things, and new thing form
-#-----------------------------------------------------------
-@app.get("/things/")
-def show_all_things():
     with connect_db() as client:
         # Get all the things from the DB
-        sql = "SELECT id, name FROM things ORDER BY name ASC"
+        sql = "SELECT id, name FROM people ORDER BY name ASC"
         params = []
         result = client.execute(sql, params)
-        things = result.rows
+        people = result.rows
 
         # And show them on the page
-        return render_template("pages/things.jinja", things=things)
+        return render_template("pages/home.jinja", people=people)
 
+
+#-----------------------------------------------------------
+# chores page route
+#-----------------------------------------------------------
+@app.get("/chores/<int:pid>")
+def show_chores(pid):
+    with connect_db() as client:
+        # Get all the things from the DB
+        sql = "SELECT id, name FROM people WHERE id = ?"
+        params = [pid]
+        result = client.execute(sql, params)
+        person = result.rows[0]
+
+        # Get all the things from the DB
+        sql = "SELECT id, name, done FROM chores ORDER BY done ASC, name ASC"
+        params = []
+        result = client.execute(sql, params)
+        chores = result.rows
+
+        # And show them on the page
+        return render_template("pages/chores.jinja", person=person, chores=chores)
+
+
+#-----------------------------------------------------------
+# sub chores page route
+#-----------------------------------------------------------
+@app.get("/SubChores/<int:pid>")
+def showSubChores(pid):
+    with connect_db() as client:
+        # Get all the things from the DB
+        sql = "SELECT id, name FROM people WHERE id = ?"
+        params = [pid]
+        result = client.execute(sql, params)
+        chore = result.rows[0]
+
+        # Get all the things from the DB
+        sql = "SELECT id, name, done FROM sub_chores ORDER BY chores ASC"
+        params = []
+        result = client.execute(sql, params)
+        chores = result.rows
+
+        # And show them on the page
+        return render_template("pages/sub_chores.jinja", person=chores,  SubChores=showSubChores)
 
 #-----------------------------------------------------------
 # Thing page route - Show details of a single thing

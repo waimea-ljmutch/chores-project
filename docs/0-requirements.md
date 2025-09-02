@@ -29,14 +29,29 @@ this implication will Use colors that work effectively together to create a plea
 well together
 
 ### Impact / Considerations
-
                             
 
 
 
-## NAME OF IMPLICATION 2
+## Usability Implication
 
-Replace this text with a clear explanation of what the implication means.
+The usability implications of a digital technology or digital outcome (e.g. a website) relate 
+to how easy it is to use for the end-user, without the need for help or guidance.
+
+### Relevance to the System
+
+
+
+### Impact / Considerations
+
+Replace this text with an explanation of what you will need to consider moving forward and how the project will be impacted by this implication.
+
+
+
+## Functionality Implication
+
+The functionality implications of a digital technology or digital outcome 
+(e.g. a website) relate to how well it works for the end-user, in terms of meeting its intended purpose.
 
 ### Relevance to the System
 
@@ -48,23 +63,10 @@ Replace this text with an explanation of what you will need to consider moving f
 
 
 
-## NAME OF IMPLICATION 3
+## Accessibility Implication
 
-Replace this text with a clear explanation of what the implication means.
-
-### Relevance to the System
-
-Replace this text with an explanation of why the implication is relevant to this particular project.
-
-### Impact / Considerations
-
-Replace this text with an explanation of what you will need to consider moving forward and how the project will be impacted by this implication.
-
-
-
-## NAME OF IMPLICATION 4
-
-Replace this text with a clear explanation of what the implication means.
+The accessibility implications of a digital technology or digital outcome (e.g. a website) 
+involve ensuring it is available to, and can be used by, all end-users, regardless of their abilities.
 
 ### Relevance to the System
 
@@ -76,9 +78,10 @@ Replace this text with an explanation of what you will need to consider moving f
 
 
 
-## NAME OF IMPLICATION 5
+## End-User Implication
 
-Replace this text with a clear explanation of what the implication means.
+The end-user implications of a digital technology or digital outcome 
+(e.g. a website) are connected to the specific needs of the end-user(s).
 
 ### Relevance to the System
 
