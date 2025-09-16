@@ -73,16 +73,16 @@ def showSubChores(pid):
         sql = "SELECT id, name FROM people WHERE id = ?"
         params = [pid]
         result = client.execute(sql, params)
-        chore = result.rows[0]
+        person = result.rows[0]
 
         # Get all the things from the DB
-        sql = "SELECT id, name, done FROM sub_chores ORDER BY chores ASC"
+        sql = "SELECT id, name, done FROM sub_chores"
         params = []
         result = client.execute(sql, params)
         chores = result.rows
 
         # And show them on the page
-        return render_template("pages/sub_chores.jinja", person=chores,  SubChores=showSubChores)
+        return render_template("pages/subChores.jinja", person=person,  SubChores=chores  )
 
 #-----------------------------------------------------------
 # Thing page route - Show details of a single thing

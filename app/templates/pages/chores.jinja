@@ -25,9 +25,10 @@
             {% for chore in chores %}
 
                 <li>
-                    {{ chore.name }}
-                    {{ chore.done }}
-                    
+                    <a href="/SubChores/{{ person.id }}">
+                        {{ chore.name }}
+                        {{ chore.done }}
+                    </a>
                 </li>
 
             {% else %}
