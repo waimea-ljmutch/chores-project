@@ -76,9 +76,9 @@ def showSubChores(pid):
         person = result.rows[0]
 
         # Get all the things from the DB
-        sql = "SELECT id, name, done FROM sub_chores"
-        params = []
-        result = client.execute(sql, params)
+        sql2 = "SELECT id, name, done FROM sub_chores WHERE id =?"
+        params2 = [pid]
+        result = client.execute(sql2, params2)
         chores = result.rows
 
         # And show them on the page
