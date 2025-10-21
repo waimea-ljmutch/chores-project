@@ -177,9 +177,9 @@ Use advanced techniques to develop a digital media outcome means that, taking in
    - [ ] Define the **key functionality** of the proposed system
 
 2. You need to use appropriate advanced tools and techniques:
-   - [ ] You have used a suitable third-party **web back-end library** (e.g. Flask / Jinja)
-   - [ ] You have **written or customised scripts** to implement functionality (e.g. Python)
-   - [ ] You have processed data using a **combination of steps** (e.g. data obtained via DB queries, inserted into HTML templates, styled via CSS)
+   - [x] You have used a suitable third-party **web back-end library** (e.g. Flask / Jinja)
+   - [x] You have **written or customised scripts** to implement functionality (e.g. Python)
+   - [x] You have processed data using a **combination of steps** (e.g. data obtained via DB queries, inserted into HTML templates, styled via CSS)
 
 3. You must apply appropriate data integrity and testing procedures:
    - [ ] All webpage text should be checked for **accuracy** (e.g. spell-checked)

@@ -20,7 +20,8 @@ Liam Mutch
 
 ## Project Links
 
-- [GitHub repo for the project](https://...)
+- [GitHub repo for the project](https://github.com/waimea-ljmutch/chores-project)
+- [project documentation](/https://waimea-ljmutch.github.io/chores-project/)
 - [Live web app](https://...)
 
 
