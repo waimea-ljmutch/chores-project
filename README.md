@@ -9,11 +9,10 @@ Liam Mutch
 
  this project will be a chore tracker.the user will be able to
 
-- Feature 1 here
-- Feature 2 here
-- Feature 3 here
-- Feature 4 here
-- Feature 5 here
+- it will be able to add chores
+- you will be able to delete the ones you dont want
+- you will be able to have sub chores for the chores
+- a clean home page
 
 
 ---
@@ -22,7 +21,7 @@ Liam Mutch
 
 - [GitHub repo for the project](https://github.com/waimea-ljmutch/chores-project)
 - [project documentation](/https://waimea-ljmutch.github.io/chores-project/)
-- [Live web app](https://...)
+- [Live web app](https://chores-project-iyy7.onrender.com)
 
 
 ---

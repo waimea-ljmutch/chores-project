@@ -39,6 +39,26 @@
         </ul>
 
     </article>
+<article>
+            <details>
+          <summary>
+              +
+          </summary>
 
+      <h3>add a new chore</h3>
+
+      <form action="/addchore/{{ pid }}"method="POST">
+      
+      
+       <input 
+          type="text"
+          name="chore"
+          placeholder="name of chore"
+          required
+        >
+
+        <button> add chore</button>
+      </form>
+</article>
 {% endblock %}
 

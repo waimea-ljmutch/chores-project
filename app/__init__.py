@@ -54,13 +54,17 @@ def show_chores(pid):
         person = result.rows[0]
 
         # Get all the things from the DB
-        sql = "SELECT id, name, done FROM chores ORDER BY done ASC, name ASC"
-        params = []
+        sql = """
+            SELECT id, name, done FROM chores 
+            WHERE person_id=?
+            ORDER BY done ASC, name ASC
+        """
+        params = [pid]
         result = client.execute(sql, params)
         chores = result.rows
 
         # And show them on the page
-        return render_template("pages/chores.jinja", person=person, chores=chores)
+        return render_template("pages/chores.jinja", person=person, chores=chores, pid=pid)
 
 
 #-----------------------------------------------------------
@@ -105,43 +109,62 @@ def show_one_thing(id):
             # No, so show error
             return not_found_error()
 
-
 #-----------------------------------------------------------
 # Route for adding a thing, using data posted from a form
 #-----------------------------------------------------------
-@app.post("/add")
-def add_a_thing():
+@app.post("/addchore/<int:pid>")
+def add_a_chore(pid):
     # Get the data from the form
-    name  = request.form.get("name")
-    price = request.form.get("price")
+    name  = request.form.get("chore")
 
     # Sanitise the text inputs
     name = html.escape(name)
 
     with connect_db() as client:
         # Add the thing to the DB
-        sql = "INSERT INTO things (name, price) VALUES (?, ?)"
-        params = [name, price]
+        sql = "INSERT INTO chores (name, pid) VALUES (?, ?)"
+        params = [name, pid]
         client.execute(sql, params)
 
         # Go back to the home page
-        flash(f"Thing '{name}' added", "success")
-        return redirect("/things")
+        flash(f"chore '{name}' added", "success")
+        return redirect("/chores/<int:pid>")
+
+#-----------------------------------------------------------
+# Route for adding a thing, using data posted from a form
+#-----------------------------------------------------------
+@app.post("/addperson")
+def add_a_person():
+    # Get the data from the form
+    name  = request.form.get("name")
+
+    # Sanitise the text inputs
+    name = html.escape(name)
+
+    with connect_db() as client:
+        # Add the thing to the DB
+        sql = "INSERT INTO people (name) VALUES (?)"
+        params = [name]
+        client.execute(sql, params)
+
+        # Go back to the home page
+        flash(f"person '{name}' added", "success")
+        return redirect("/")
 
 
 #-----------------------------------------------------------
 # Route for deleting a thing, Id given in the route
 #-----------------------------------------------------------
 @app.get("/delete/<int:id>")
-def delete_a_thing(id):
+def delete_a_thing(pid):
     with connect_db() as client:
         # Delete the thing from the DB
-        sql = "DELETE FROM things WHERE id=?"
+        sql = "DELETE FROM chores WHERE id=?"
         params = [id]
         client.execute(sql, params)
 
         # Go back to the home page
-        flash("Thing deleted", "success")
-        return redirect("/things")
+        flash("chore deleted", "success")
+        return redirect("/chores")
 
 

@@ -43,14 +43,40 @@
                     </a>
                 </li>
 
-            {% else %}
-
-
-
             {% endfor %}
         </ul>
 
     </article>
+
+    <article>
+        <details>
+          <summary>
+              +
+          </summary>
+
+      <h3>add a new person</h3>
+
+      <form action="/addperson" method="POST">
+      
+      
+       <input 
+          type="text"
+          name="name"
+          placeholder="name of person"
+          required
+        >
+
+        <button> add person</button>
+
+
+      </form>
+ 
+
+
+   </details>
+
+    
+ </article>
 
 {% endblock %}
 
