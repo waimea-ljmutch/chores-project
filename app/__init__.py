@@ -56,37 +56,15 @@ def show_chores(pid):
         # Get all the things from the DB
         sql = """
             SELECT id, name, done FROM chores 
-            WHERE person_id=?
+            WHERE done=0
             ORDER BY done ASC, name ASC
         """
-        params = [pid]
+        params = []
         result = client.execute(sql, params)
         chores = result.rows
 
         # And show them on the page
         return render_template("pages/chores.jinja", person=person, chores=chores, pid=pid)
-
-
-#-----------------------------------------------------------
-# sub chores page route
-#-----------------------------------------------------------
-@app.get("/SubChores/<int:pid>")
-def showSubChores(pid):
-    with connect_db() as client:
-        # Get all the things from the DB
-        sql = "SELECT id, name FROM people WHERE id = ?"
-        params = [pid]
-        result = client.execute(sql, params)
-        person = result.rows[0]
-
-        # Get all the things from the DB
-        sql2 = "SELECT id, name, done FROM sub_chores WHERE id =?"
-        params2 = [pid]
-        result = client.execute(sql2, params2)
-        chores = result.rows
-
-        # And show them on the page
-        return render_template("pages/subChores.jinja", person=person,  SubChores=chores  )
 
 #-----------------------------------------------------------
 # Thing page route - Show details of a single thing
