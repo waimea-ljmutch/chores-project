@@ -182,8 +182,8 @@ Use advanced techniques to develop a digital media outcome means that, taking in
    - [x] You have processed data using a **combination of steps** (e.g. data obtained via DB queries, inserted into HTML templates, styled via CSS)
 
 3. You must apply appropriate data integrity and testing procedures:
-   - [ ] All webpage text should be checked for **accuracy** (e.g. spell-checked)
-   - [ ] Any **data shown is as expected** (i.e. matches database / calculated values)
+   - [x] All webpage text should be checked for **accuracy** (e.g. spell-checked)
+   - [x] Any **data shown is as expected** (i.e. matches database / calculated values)
 
 4. You need to use relevant conventions for a web site:
    - [ ] **Webpage layouts** follow accepted norms
