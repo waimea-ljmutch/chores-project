@@ -26,7 +26,7 @@ The key functionality of the web app was implemented:
 
 ---
 
-## Testing FEATURE NAME HERE
+## Testing to see if the names are showing
 
 Replace this text with notes about what you are testing, how you tested it, and the outcome of the testing
 

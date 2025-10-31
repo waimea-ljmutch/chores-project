@@ -17,17 +17,18 @@
 
 {% block content %}
 
+    <h2>{{ person.name }}, pick a chore...</h2>
+
     <article>
 
-        <h2>{{ person.name }}, pick a chore...</h2>
+        <h3>Chores You've Picked</h3>
 
         <ul>
-            {% for chore in chores %}
+            {% for chore in your_chores %}
 
                 <li>
-                    <a href="/SubChores/{{ person.id }}">
-                        {{ chore.name }}
-                    </a>
+                    {{ chore.name }}
+                    <a href="/chore/{{ chore.id }}/done">Done</a>
                 </li>
 
             {% else %}
@@ -38,16 +39,57 @@
         </ul>
 
     </article>
-<article>
-            <details>
+
+        <article>
+
+        <h3>Other Chores To Do</h3>
+
+        <ul>
+            {% for chore in other_chores %}
+
+                <li>
+                    {{ chore.name }}
+                    <a href="/chore/{{ chore.id }}/pick">Pick</a>
+                </li>
+
+            {% else %}
+
+                <p>None!</p>
+
+            {% endfor %}
+        </ul>
+
+    </article>
+
+    <article>
+        <h3>Done chores</h3>
+
+        <ul>
+            {% for chore in done_chores %}
+
+                <li>
+                    {{ chore.c_name }} - Done by {{ chore.p_name }}
+                    <a href="/chore/{{ chore.id }}/reset">Reset</a>
+                </li>
+
+            {% else %}
+
+                <p>None!</p>
+
+            {% endfor %}
+        </ul>
+
+    </article>
+
+    <article>
+        <details>
           <summary>
               +
           </summary>
 
       <h3>add a new chore</h3>
 
-      <form action="/addchore/{{ pid }}"method="POST">
-      
+      <form action="/chore"method="POST">
       
        <input 
           type="text"
@@ -58,6 +100,7 @@
 
         <button> add chore</button>
       </form>
-</article>
+    </article>
+
 {% endblock %}
 

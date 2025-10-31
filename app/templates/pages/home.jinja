@@ -23,7 +23,7 @@
             {% for person in people %}
 
                 <li>
-                    <a href="/chores/{{ person.id }}">
+                    <a href="/person/{{ person.id }}">
                         {{ person.name }}
                     </a>
                 </li>
@@ -45,7 +45,7 @@
 
       <h3>add a new person</h3>
 
-      <form action="/addperson" method="POST">
+      <form action="/person" method="POST">
       
       
        <input 

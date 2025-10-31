@@ -172,9 +172,9 @@ Achievement standard [91893](as91893.pdf), Use advanced techniques to develop a 
 Use advanced techniques to develop a digital media outcome means that, taking into account the problem / need and the end users:
 
 1. You must first define the purpose of your system and the end-users' needs:
-   - [ ] Define the **purpose of the system** that uses the database
-   - [ ] Describe the **needs of the end-users**
-   - [ ] Define the **key functionality** of the proposed system
+   - [x] Define the **purpose of the system** that uses the database
+   - [x] Describe the **needs of the end-users**
+   - [x] Define the **key functionality** of the proposed system
 
 2. You need to use appropriate advanced tools and techniques:
    - [x] You have used a suitable third-party **web back-end library** (e.g. Flask / Jinja)
@@ -193,8 +193,8 @@ Use advanced techniques to develop a digital media outcome means that, taking in
 
 5. You need to explain relevant implications:
    - [ ] Identify the **implications most relevant** to your project
-   - [ ] Explain **what the implications mean** and **why each is relevant** to your project
-   - [ ] Explain **how each implication will impact your specific project** (considerations / choices / designs)
+   - [x] Explain **what the implications mean** and **why each is relevant** to your project
+   - [x] Explain **how each implication will impact your specific project** (considerations / choices / designs)
 
 *Note: You must satisfy **all** of the criteria above to pass*
 

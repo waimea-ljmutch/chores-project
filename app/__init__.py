@@ -5,7 +5,7 @@
 # BRIEF DESCRIPTION OF YOUR PROJECT HERE
 #===========================================================
 
-from flask import Flask, render_template, request, flash, redirect
+from flask import Flask, render_template, request, flash, redirect, session
 import html
 
 from app.helpers.session import init_session
@@ -42,10 +42,24 @@ def index():
 
 
 #-----------------------------------------------------------
+# process person selection
+#-----------------------------------------------------------
+@app.get("/person/<int:pid>")
+def show_person(pid):
+    # Save user ID for later
+    session['pid'] = pid
+    return redirect("/chores")
+
+#-----------------------------------------------------------
 # chores page route
 #-----------------------------------------------------------
-@app.get("/chores/<int:pid>")
-def show_chores(pid):
+@app.get("/chores")
+def show_chores():
+    # Get the user from the session
+    pid = session.get("pid", None)
+    if not pid:
+        redirect("/")
+
     with connect_db() as client:
         # Get all the things from the DB
         sql = "SELECT id, name FROM people WHERE id = ?"
@@ -53,45 +67,55 @@ def show_chores(pid):
         result = client.execute(sql, params)
         person = result.rows[0]
 
-        # Get all the things from the DB
+        # Get all the person's chores that are not done
         sql = """
             SELECT id, name, done FROM chores 
-            WHERE done=0
-            ORDER BY done ASC, name ASC
+            WHERE done=0 AND person_id=?
+            ORDER BY name ASC
+        """
+        params = [pid]
+        result = client.execute(sql, params)
+        your_chores = result.rows
+
+        # Get all the person's other chores that are not done
+        sql = """
+            SELECT id, name FROM chores 
+            WHERE done=0 AND person_id IS NULL
+            ORDER BY name ASC
         """
         params = []
         result = client.execute(sql, params)
-        chores = result.rows
+        other_chores = result.rows
+
+        # Get all the person's other chores that are not done
+        sql = """
+            SELECT 
+                chores.id, 
+                chores.name AS c_name, 
+                people.name AS p_name
+            FROM chores 
+            JOIN people ON chores.person_id = people.id
+            WHERE done=1
+            ORDER BY c_name ASC
+        """
+        params = []
+        result = client.execute(sql, params)
+        done_chores = result.rows
 
         # And show them on the page
-        return render_template("pages/chores.jinja", person=person, chores=chores, pid=pid)
+        return render_template(
+            "pages/chores.jinja", 
+            person=person, 
+            your_chores=your_chores,
+            other_chores=other_chores,
+            done_chores=done_chores    
+        )
 
 #-----------------------------------------------------------
-# Thing page route - Show details of a single thing
+# Route for adding a chore, using data posted from a form
 #-----------------------------------------------------------
-@app.get("/thing/<int:id>")
-def show_one_thing(id):
-    with connect_db() as client:
-        # Get the thing details from the DB
-        sql = "SELECT id, name, price FROM things WHERE id=?"
-        params = [id]
-        result = client.execute(sql, params)
-
-        # Did we get a result?
-        if result.rows:
-            # yes, so show it on the page
-            thing = result.rows[0]
-            return render_template("pages/thing.jinja", thing=thing)
-
-        else:
-            # No, so show error
-            return not_found_error()
-
-#-----------------------------------------------------------
-# Route for adding a thing, using data posted from a form
-#-----------------------------------------------------------
-@app.post("/addchore/<int:pid>")
-def add_a_chore(pid):
+@app.post("/chore")
+def add_a_chore():
     # Get the data from the form
     name  = request.form.get("chore")
 
@@ -100,18 +124,64 @@ def add_a_chore(pid):
 
     with connect_db() as client:
         # Add the thing to the DB
-        sql = "INSERT INTO chores (name, pid) VALUES (?, ?)"
-        params = [name, pid]
+        sql = "INSERT INTO chores (name) VALUES (?)"
+        params = [name]
         client.execute(sql, params)
 
         # Go back to the home page
         flash(f"chore '{name}' added", "success")
-        return redirect("/chores/<int:pid>")
+        return redirect("/chores")
 
 #-----------------------------------------------------------
-# Route for adding a thing, using data posted from a form
+# Route for marking a chore done
 #-----------------------------------------------------------
-@app.post("/addperson")
+@app.get("/chore/<int:id>/done")
+def chore_done(id):
+    with connect_db() as client:
+        # Add the thing to the DB
+        sql = "UPDATE chores SET done=1 WHERE id=?"
+        params = [id]
+        client.execute(sql, params)
+
+        # Go back to the home page
+        flash(f"chore #{id} is done!", "success")
+        return redirect("/chores")
+    
+
+#-----------------------------------------------------------
+# Route for picking a chore
+#-----------------------------------------------------------
+@app.get("/chore/<int:id>/pick")
+def chore_pick(id):
+    # Get the user from the session
+    pid = session.get("pid", None)
+    if pid:  
+        with connect_db() as client:
+            # Add the chore to the "your_chores" table
+            sql = "UPDATE chores SET person_id=? WHERE id=?"
+            params = [pid, id]
+            client.execute(sql, params)
+
+    return redirect("/chores")   
+
+
+#-----------------------------------------------------------
+# Route for resetting the chore
+#-----------------------------------------------------------
+@app.get("/chore/<int:id>/reset")
+def chore_reset(id):
+    with connect_db() as client:
+        # Add the chore to the "your_chores" table
+        sql = "UPDATE chores SET done=0, person_id=NULL WHERE id=?"
+        params = [id]
+        client.execute(sql, params)
+        return redirect("/chores")   
+
+
+#-----------------------------------------------------------
+# Route for adding a person, using data posted from a form
+#-----------------------------------------------------------
+@app.post("/person")
 def add_a_person():
     # Get the data from the form
     name  = request.form.get("name")
@@ -128,21 +198,3 @@ def add_a_person():
         # Go back to the home page
         flash(f"person '{name}' added", "success")
         return redirect("/")
-
-
-#-----------------------------------------------------------
-# Route for deleting a thing, Id given in the route
-#-----------------------------------------------------------
-@app.get("/delete/<int:id>")
-def delete_a_thing(pid):
-    with connect_db() as client:
-        # Delete the thing from the DB
-        sql = "DELETE FROM chores WHERE id=?"
-        params = [id]
-        client.execute(sql, params)
-
-        # Go back to the home page
-        flash("chore deleted", "success")
-        return redirect("/chores")
-
-
